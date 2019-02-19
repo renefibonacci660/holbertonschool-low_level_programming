@@ -17,7 +17,7 @@ void puts_half(char *str)
 	}
 	else
 	{
-		startp = (count - 1) / 2;
+		startp = (count + 1) / 2;
 	}
 
 	for (; startp <= count; startp++)
