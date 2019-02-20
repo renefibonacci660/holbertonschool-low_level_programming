@@ -12,13 +12,9 @@ void puts_half(char *str)
 	for (; str[count] != '\0'; count++)
 	{}
 	if (count % 2 == 0)
-	{
 		startp = count / 2;
-	}
 	else
-	{
 		startp = (count + 1) / 2;
-	}
 
 	for (; str[startp] != '\0'; startp++)
 	{
