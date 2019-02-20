@@ -14,15 +14,18 @@ void puts_half(char *str)
 	if (count % 2 == 0)
 	{
 		startp = count / 2;
+		for (; startp <= count; startp++)
+	{
+		_putchar(str[startp]);
+	}
 	}
 	else
 	{
 		startp = (count + 1) / 2;
-	}
-
-	for (; startp <= count; startp++)
+		for (; startp <= count; startp++)
 	{
 		_putchar(str[startp]);
+	}
 	}
 	_putchar('\n');
 }
