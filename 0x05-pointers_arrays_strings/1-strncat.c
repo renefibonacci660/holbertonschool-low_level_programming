@@ -20,7 +20,7 @@ char *_strncat(char *dest, char *src, int n)
 		dest[len1] = src[len2];
 	}
 
-	dest[len1] = '\0';
+	dest[len1] = '\0'; /** adds null char, can not equal to second string **/
 
 	return (dest);
 }
