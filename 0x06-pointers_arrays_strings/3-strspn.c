@@ -20,6 +20,7 @@ unsigned int _strspn(char *s, char *accept)
 			if (accept[a] == s[b])
 				counter++;
 			/* stop counting if not char */
+			/* have it only check for what is in accept since rn only limited with char */
 			if (s[b + 1] < 65 || s[b + 1] > 90)
 			{
 				if (s[b + 1] < 97 || s[b + 1] > 122)
