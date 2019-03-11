@@ -34,4 +34,4 @@ What you should learn from this project:
 ---
 
 ## Author
-* **YOUR_NAME** - [renefibonacci660](https://github.com/renefibonacci660)
+* **Brittney Goertzen** - [renefibonacci660](https://github.com/renefibonacci660)

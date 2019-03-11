@@ -2,7 +2,7 @@
 #define HOLBERTON
 
 /**
- * struct dog - Defines a dog's characteristic's and descriptors 
+ * struct dog - Defines a dog's characteristic's and descriptors
  * @name: string for dog's name
  * @age: integer for dog's age
  * @owner: string for owner's name
