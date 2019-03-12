@@ -1,15 +1,13 @@
-#include <stdio.h>
 #include <unistd.h>
 /**
- * main - Entry point of function
- * Description: prints text to standard error
- * Return: Always zero
+ * main - prints string
+ * Return: 1 always
  */
 int main(void)
 {
-	char *a;
+	char *s;
 
-	a = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+	s = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 	write(2, s, 59);
 	return (1);
 }
