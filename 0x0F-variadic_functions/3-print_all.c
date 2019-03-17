@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void printchar(va_list list);
+void print_int(va_list list);
+void printflt(va_list list);
+void printstr(va_list list);
+
 /**
  * print_all - prints all unknown num of arguments passed if 4 types
  * @format: argument type passed by 3-main.c
@@ -11,46 +16,80 @@ void print_all(const char * const format, ...)
 {
 	va_list list;
 	int i = 0;
-	int flag; /** like boolean values, 0 if false 1 for true */
-	char *s;
+	int j = 0;
+	char *separator = "";
+
+	op_t ops[] = {
+		{"c", printchar},
+		{"i", print_int},
+		{"f", printflt},
+		{"s", printstr},
+		{NULL, NULL}};
 
 	va_start(list, format);
 
-	while (format != NULL && format[i] != '\0')
+	while (format != NULL && format[i])
 	{
-		switch (format[i])
+		while (ops[j].s)
 		{
-			case 'c':
-				printf("%c", va_arg(list, int));
-				flag = 0;
-				break;
-
-			case 'i':
-				printf("%i", va_arg(list, int));
-				flag = 0;
-				break;
-
-			case 'f':
-				printf("%f", va_arg(list, double));
-				flag = 0;
-				break;
-
-			case 's':
-				s = va_arg(list, char*);
-				if (s == NULL)
-					s = "(nil)";
-				printf("%s", s);
-				flag = 0;
-				break;
-
-			default:
-				flag = 1;
-				break;
+			if (format[i] == *ops[j].s)
+			{
+				printf("%s", separator);
+				ops[j].f(list);
+				separator = ", ";
+			}
+			j++;
 		}
-
-		if (format[i + 1] != '\0' && flag == 0)
-			printf(", ");
 		i++;
+		j = 0;
 	}
+	va_end(list);
 	printf("\n");
+}
+
+
+/**
+ * printchar - prints character
+ * @list: listing of held values passed
+ */
+void printchar(va_list list)
+{
+	printf("%c", va_arg(list, int));
+}
+
+
+/**
+ * print_int - prints integer
+ * @list: listing of held values passed
+ */
+void print_int(va_list list)
+{
+	printf("%i", va_arg(list, int));
+}
+
+
+/**
+ * printflt - prints float
+ * @list: listing of held values passed
+ */
+void printflt(va_list list)
+{
+	printf("%f", va_arg(list, double));
+}
+
+
+/**
+ * printstr - prints string
+ * @list: listing of held values passed
+ */
+void printstr(va_list list)
+{
+	char *str;
+
+	str = va_arg(list, char *);
+
+	if (str == NULL)
+		str = "(nil)";
+
+	printf("%s", str);
 }
