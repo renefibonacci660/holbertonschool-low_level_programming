@@ -8,10 +8,9 @@
 /**
  * struct op - struct for function parameter to print anything
  * passed; used rn by 3-print_all.c
- * @op: the case use
  * @f: the function to parse cases to determine what variable type to print
+ * @s: holds argument passed, declared as string incase string is needed
  */
-
 typedef struct op
 {
 	char *s;
