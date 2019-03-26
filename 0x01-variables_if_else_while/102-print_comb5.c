@@ -7,13 +7,11 @@
 **/
 int main(void)
 {
-	int first = 0;
-	int second = 0;
+	int first;
+	int second;
 
-	while (first < 99)
+	for (first = 0; first < 99; first++)
 	{
-		first++;
-
 		for (second = first + 1; second <= 99; second++)
 		{
 			if (first < second)
