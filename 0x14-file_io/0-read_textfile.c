@@ -9,10 +9,10 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int i;
 	int func;
 	int read_letters;
-	char buffer[1024];
+	int total_letters = 0;
+	char *buffer[1024];
 
 	if (!filename || !letters)
 		return (0);
@@ -20,9 +20,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	func = open(filename, O_RDONLY);
 
 	if (func == -1)
-	{
 		return (0);
-	}
+
 
 	read_letters = read(func, buffer, letters);
 
@@ -32,15 +31,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	for (i = 0; i < read_letters; i++)
-	{
-		if (write(STDOUT_FILENO, &buffer[i], 1) == -1)
-		{
-			close(func);
-			return (0);
-		}
+	total_letters = write(STDOUT_FILENO, buffer, read_letters);
 
-	}
 	close(func);
-	return (read_letters);
+	return (total_letters);
 }
