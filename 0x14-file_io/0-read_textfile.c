@@ -14,7 +14,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int read_letters;
 	char buffer[1024];
 
-	if (filename == NULL)
+	if (!filename || !letters)
 		return (0);
 
 	func = open(filename, O_RDONLY);
