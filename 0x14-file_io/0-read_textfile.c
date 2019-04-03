@@ -12,7 +12,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int func;
 	int read_letters;
 	int total_letters = 0;
-	char *buffer[1024];
+	char *buffer[1024]; /* pointer so this is 8x's size */
 
 	if (!filename || !letters)
 		return (0);
