@@ -1,6 +1,8 @@
 #ifndef HOLBERTON_HEADER
 #define HOLBERTON_HEADER
 
+#define EXIT_SUCCESS 0
+
 int main(void);
 int _putchar(char c);
 int _islower(int c);
