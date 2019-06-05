@@ -13,8 +13,9 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 
 	htable = calloc(1, sizeof(hash_table_t));
-	htable->array = calloc(1, sizeof(hash_table_t));
 	htable->size = size;
+	htable->array = calloc(1, sizeof(hash_table_t));
+	
 
 	if (!htable->array)
 	{
