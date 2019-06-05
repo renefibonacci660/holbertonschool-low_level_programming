@@ -7,13 +7,16 @@
 
 hash_table_t *hash_table_create(unsigned long int size)
 {
+	if (!size)
+		return (NULL);
+
 	hash_table_t *htable;
 
 	htable = calloc(1, sizeof(hash_table_t));
 	if (!htable)
 		return (NULL);
 
-	htable->array = calloc(1, sizeof(hash_table_t *));
+	htable->array = calloc(size, sizeof(hash_table_t *));
 	if (!htable->array)
 		return (NULL);
 
