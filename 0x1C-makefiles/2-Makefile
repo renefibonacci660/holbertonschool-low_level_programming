@@ -1,0 +1,6 @@
+CC = gcc
+SRC = main.c holberton.c
+OBJ = $(patsubst %.o, %c, $(SRC))
+NAME = holberton
+all: $(OBJ) m.h
+	$(CC) $(OBJ) -o $(NAME)
