@@ -33,6 +33,7 @@ int binary_search(int *array, size_t size, int value)
 				printf("%i, ", array[list]);
 		}
 		mid = (right + left) / 2;
+
 		if (array[mid] == value)
 			return (mid);
 		else if (value < array[mid])
